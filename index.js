@@ -1,24 +1,32 @@
 function solution(A, K) {
     const N = A.length;
-
-    // Check for empty array or no rotation needed
+  
     if (N === 0) {
-        return A;
+      return A;
     }
+  
     // Adjust K to be within the range [0, N-1] to avoid unnecessary rotations
-    K = K % N;
-
-    // Perform rotation using Array.slice() method
-    const rotatedPart = A.slice(N - K);
-    const remainingPart = A.slice(0, N - K);
-
-    // Concatenate the rotated and remaining parts
-    return rotatedPart.concat(remainingPart);
-}
-
-//Example usage:
-const A1 = [3, 8, 9, 7, 6];
-const K1 = 3;
-console.log(solution(A1, K1));  // expected output: [9, 7, 6, 3, 8]
-
-
+    // 5 /2 = 2 rem 1
+    // 5 % 2 = 1
+  
+      //  K = K % N;
+      K = K % 100;
+  
+      // N = Math.min(N, 100);
+  
+    // rotating the values
+    const rotated = A.slice(N - K);
+    const remaining = A.slice(0, N - K);
+  
+    //patching the new arrays together using concat();
+    return rotated.concat(remaining);
+  }
+  
+  // const Array1 = [3, 8, 9, 7, 6];
+  // const K1 = 3;
+  
+  const array1 = [6, 4, 8, 2, 9];
+  const rtn = 2;
+  
+  console.log(solution(array1, rtn)); 
+  
